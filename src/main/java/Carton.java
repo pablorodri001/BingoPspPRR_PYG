@@ -3,9 +3,9 @@ import java.util.Arrays;
 
 public class Carton {
 
-    int[] linea1 = new int[8];
-    int[] linea2 = new int[8];
-    int[] linea3 = new int[8];
+    int[] linea1;
+    int[] linea2;
+    int[] linea3;
 
 
     public Carton() {
