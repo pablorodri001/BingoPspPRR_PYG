@@ -35,12 +35,12 @@ public class Carton {
     }
 
     private int[] rellenarLinea(ArrayList<Integer> numeros, int id) {
-        int[] linea = new int[8];
+        int[] linea = new int[9];
         ArrayList<Integer> casillasVacias = new ArrayList<>();
 
         //Genera 4 numeros distintos entre 1 y 8 que serán las casillas vacias de la linea:
         while (casillasVacias.size()<4){
-            int vacio = (int) (Math.random()*8);
+            int vacio = (int) (Math.random()*9);
 
             if(!casillasVacias.contains(vacio)){
                 casillasVacias.add(vacio);
@@ -59,7 +59,7 @@ public class Carton {
         }
 
         //Asigna numeros a cada casilla de las líneas. Si la casilla está vacia se pone 0.
-        for (int i = 0; i < 8; i++){
+        for (int i = 0; i < 9; i++){
              if (casillasVacias.contains(i)){
                  linea[i] = 0;
              }
