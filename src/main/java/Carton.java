@@ -22,7 +22,7 @@ public class Carton {
 
         ArrayList<Integer> numeros = new ArrayList<>();
 
-        //Genera una lista de 15 números distintos aleatorios entre 0 y 100:
+        //Genera una lista de 15 números distintos aleatorios entre 1 y 99:
         while(numeros.size()<15){
             int numero = (int) (Math.random()*100 + 1);
 
@@ -35,10 +35,11 @@ public class Carton {
     }
 
     private int[] rellenarLinea(ArrayList<Integer> numeros, int id) {
+
         int[] linea = new int[9];
         ArrayList<Integer> casillasVacias = new ArrayList<>();
 
-        //Genera 4 numeros distintos entre 1 y 8 que serán las casillas vacias de la linea:
+        //Genera 4 números distintos entre 0 y 8 que serán las casillas vacías de la linea:
         while (casillasVacias.size()<4){
             int vacio = (int) (Math.random()*9);
 
@@ -49,6 +50,7 @@ public class Carton {
 
         //Dependiendo de que línea sea:
         int contador;
+
         if(id==1){
             contador = 0;
         }else if(id==2){
@@ -58,7 +60,7 @@ public class Carton {
             contador=10;
         }
 
-        //Asigna numeros a cada casilla de las líneas. Si la casilla está vacia se pone 0.
+        //Asigna números a cada casilla de las líneas. Si la casilla está vacía pone un 0.
         for (int i = 0; i < 9; i++){
              if (casillasVacias.contains(i)){
                  linea[i] = 0;
