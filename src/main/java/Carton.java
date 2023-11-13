@@ -17,6 +17,7 @@ public class Carton {
         int [][] carton = new int[3][9];
         int contador;
 
+        //Recorrer filas:
         for(int i = 0; i<3; i++){
             ArrayList<Integer> casillasVacias = new ArrayList<>();
 
@@ -39,7 +40,7 @@ public class Carton {
                 contador=10;
             }
 
-            //Asigna números a cada casilla de las líneas. Si la casilla está vacía pone un 0.
+            //Recorre las columnas y asigna números a cada casilla de la fila. Si la casilla está vacía pone un 0.
             for (int j = 0; j < 9; j++){
                 if (casillasVacias.contains(j)){
                     carton[i][j] = 0;
