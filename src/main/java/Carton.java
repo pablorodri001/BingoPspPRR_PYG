@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Carton {
 
@@ -30,7 +29,7 @@ public class Carton {
                 }
             }
 
-            //Dependiendo de que línea sea:
+            //Dependiendo de que fila sea:
             if(i==0){
                 contador = 0;
             }else if(i==1){
