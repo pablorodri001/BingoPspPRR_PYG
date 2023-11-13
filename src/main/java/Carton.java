@@ -81,7 +81,7 @@ public class Carton {
         for(int i = 0; i<3; i++){
             ArrayList<Integer> casillasVacias = new ArrayList<>();
 
-            //Genera 4 números distintos entre 0 y 8 que serán las casillas vacías de la línea:
+            //Genera 4 números distintos entre 0 y 8 que serán las casillas vacías de la línea::
             while (casillasVacias.size()<4){
                 int vacio = (int) (Math.random()*9);
 
