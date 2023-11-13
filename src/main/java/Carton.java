@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Carton {
 
@@ -15,7 +16,7 @@ public class Carton {
 
     private int[][] rellenarCarton(ArrayList<Integer> numeros) {
         int [][] carton = new int[3][9];
-        int contador;
+        int contador=0;
 
         //Recorrer filas:
         for(int i = 0; i<3; i++){
@@ -30,22 +31,22 @@ public class Carton {
                 }
             }
 
-            //Dependiendo de que fila sea:
-            if(i==0){
-                contador = 0;
-            }else if(i==1){
-                contador = 5;
-            }
-            else{
-                contador=10;
-            }
-
-            //Recorre las columnas y asigna números a cada casilla de la fila. Si la casilla está vacía pone un 0.
+            //Recorre las columnas, si la casilla está vacía pone un -1.
             for (int j = 0; j < 9; j++){
                 if (casillasVacias.contains(j)){
+                    carton[i][j] = -1;
+                }
+            }
+        }
+
+        //Recorrer columnas:
+        for (int j=0; j<9; j++){
+            //Recorrer fila y añadir números a las casillas que no tengan un -1 (casilla vacía):
+            for(int i = 0; i<3; i++){
+                if (carton[i][j] == -1){
                     carton[i][j] = 0;
                 }
-                else {
+                else if (carton [i][j] != -1){
                     carton[i][j] = numeros.get(contador);
                     contador++;
                 }
@@ -60,12 +61,13 @@ public class Carton {
 
         //Genera una lista de 15 números distintos aleatorios entre 1 y 99:
         while(numeros.size()<15){
-            int numero = (int) (Math.random()*100 + 1);
+            int numero = (int) (Math.random()*99 + 1);
 
             if(!numeros.contains(numero)){
                 numeros.add(numero);
             }
         }
+        Collections.sort(numeros);
         return numeros;
     }
 
