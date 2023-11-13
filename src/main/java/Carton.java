@@ -4,6 +4,9 @@ import java.util.Collections;
 public class Carton {
 
     int [][] carton;
+    ArrayList<Integer> linea1;
+    ArrayList<Integer> linea2;
+    ArrayList<Integer> linea3;
 
 
     public Carton() {
@@ -11,12 +14,68 @@ public class Carton {
         ArrayList<Integer> numeros = generarNumeros();
 
         carton = rellenarCarton(numeros);
+        linea1=leerLinea1();
+        linea2=leerLinea2();
+        linea3=leerLinea3();
+    }
+
+    private void cantarLinea(){
+        ArrayList<Integer> linea1=leerLinea1();
 
     }
 
+    public ArrayList<Integer> leerLinea1() {
+        ArrayList<Integer> linea1=new ArrayList<>();
+        for(int i=0;i<9;i++){
+            linea1.add(carton[0][i]);
+
+        }
+        System.out.println(linea1.toString());
+        return linea1;
+    }
+
+    public ArrayList<Integer> leerLinea2() {
+        ArrayList<Integer> linea2=new ArrayList<>();
+        for(int i=0;i<9;i++){
+            linea2.add(carton[1][i]);
+
+        }
+        System.out.println(linea2.toString());
+        return linea2;
+    }
+    public ArrayList<Integer> leerLinea3() {
+        ArrayList<Integer> linea3=new ArrayList<>();
+        for(int i=0;i<9;i++){
+            linea3.add(carton[0][i]);
+
+        }
+        System.out.println(linea3.toString());
+        return linea3;
+    }
+
     private int[][] rellenarCarton(ArrayList<Integer> numeros) {
-        int [][] carton = new int[3][9];
+        int [][] carton = seleccionarVacias();
         int contador=0;
+
+        //Recorrer columnas:
+        for (int j=0; j<9; j++){
+
+            //Recorrer filas de cada columna: Si el valor es -1 se cambia por 0 (casilla vacía), si no se mete uno de los números.
+            for(int i = 0; i<3; i++){
+                if (carton[i][j] == -1){
+                    carton[i][j] = 0;
+                }
+                else if (carton [i][j] != -1){
+                    carton[i][j] = numeros.get(contador);
+                    contador++;
+                }
+            }
+        }
+        return carton;
+    }
+
+    private int[][] seleccionarVacias() {
+        int [][] carton = new int[3][9];
 
         //Recorrer filas:
         for(int i = 0; i<3; i++){
@@ -39,19 +98,6 @@ public class Carton {
             }
         }
 
-        //Recorrer columnas:
-        for (int j=0; j<9; j++){
-            //Recorrer fila y añadir números a las casillas que no tengan un -1 (casilla vacía):
-            for(int i = 0; i<3; i++){
-                if (carton[i][j] == -1){
-                    carton[i][j] = 0;
-                }
-                else if (carton [i][j] != -1){
-                    carton[i][j] = numeros.get(contador);
-                    contador++;
-                }
-            }
-        }
         return carton;
     }
 
