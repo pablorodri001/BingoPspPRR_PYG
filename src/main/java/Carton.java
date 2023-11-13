@@ -30,7 +30,7 @@ public class Carton {
             linea1.add(carton[0][i]);
 
         }
-        System.out.println(linea1.toString());
+
         return linea1;
     }
 
@@ -40,7 +40,6 @@ public class Carton {
             linea2.add(carton[1][i]);
 
         }
-        System.out.println(linea2.toString());
         return linea2;
     }
     public ArrayList<Integer> leerLinea3() {
@@ -49,7 +48,6 @@ public class Carton {
             linea3.add(carton[0][i]);
 
         }
-        System.out.println(linea3.toString());
         return linea3;
     }
 
