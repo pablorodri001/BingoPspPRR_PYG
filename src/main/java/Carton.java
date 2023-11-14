@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Carton {
-
     int [][] carton;
     ArrayList<Integer> linea1;
     ArrayList<Integer> linea2;
