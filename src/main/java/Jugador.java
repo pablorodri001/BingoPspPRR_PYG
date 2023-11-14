@@ -3,12 +3,14 @@ public class Jugador implements Runnable {
 
     private int idJugador;
     private Carton cartonJugador;
+    private Casino casinoJuego;
 
 
 
-    public Jugador(int idJugador, Carton cartonJugador) {
+    public Jugador(int idJugador, Carton cartonJugador,Casino casinoJuego) {
         this.idJugador = idJugador;
         this.cartonJugador = cartonJugador;
+        this.casinoJuego=casinoJuego;
     }
 
     @Override
@@ -37,6 +39,7 @@ public class Jugador implements Runnable {
 
     @Override
     public void run() {
+
 
     }
 }
