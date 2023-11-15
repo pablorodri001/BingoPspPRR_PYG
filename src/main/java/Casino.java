@@ -2,11 +2,11 @@ public class Casino {
 
     private Carton cartonesJugados;
 
-    public Casino(Carton cartonesJugados) {
+    public Casino() {
         this.cartonesJugados = cartonesJugados;
     }
 
-    public static void cantarlinea(Carton carton) {
+    public static boolean cantarlinea(Carton carton) {
         boolean linea=false;
         int contadorLinea=0;
         int contadorLinea2=0;
@@ -28,16 +28,20 @@ public class Casino {
             if(contadorLinea==5){
                 linea=true;
                 System.out.println("Han cantado Linea 1: "+carton.linea1.toString());
+                return true;
             }
             if(contadorLinea2==5){
                 linea=true;
                 System.out.println("Han cantado la Linea 2 : "+carton.linea2.toString());
+                return true;
             }
             if(contadorLinea3==5){
                 linea=true;
                 System.out.println("Han cantado la Linea 3: " +carton.linea2.toString());
+                return true;
             }
         }while(!linea);
+        return false;
 
     }
     private static int calcularNumeroAleatorio() {
@@ -46,4 +50,7 @@ public class Casino {
 
     }
 
+    public static void cantarBingo(Carton carton) {
+
+    }
 }

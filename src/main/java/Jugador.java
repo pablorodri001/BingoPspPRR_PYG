@@ -39,7 +39,9 @@ public class Jugador implements Runnable {
 
     @Override
     public void run() {
-
+    if(Casino.cantarlinea(cartonJugador )){
+        Casino.cantarBingo(cartonJugador);
+    };
 
     }
 }
