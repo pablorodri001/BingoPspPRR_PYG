@@ -1,56 +1,89 @@
+import java.util.ArrayList;
+
 public class Casino {
 
-    private Carton cartonesJugados;
+    private boolean linea;
+    private boolean bingo;
+    private int numeroActual;
+    private int contador;
+    ArrayList<Integer> numeros;
 
     public Casino() {
-        this.cartonesJugados = cartonesJugados;
+        linea=false;
+        bingo = false;
+        numeros = generarNumeros();
+        contador = 0;
     }
 
-    public static boolean cantarlinea(Carton carton) {
-        boolean linea=false;
-        int contadorLinea=0;
-        int contadorLinea2=0;
-        int contadorLinea3=0;
-        do{
-            int numeroGenerado=calcularNumeroAleatorio();
-            if(carton.linea1.contains(numeroGenerado)){
-                System.out.println(numeroGenerado);
-                contadorLinea++;
-            }
-            else if(carton.linea2.contains(numeroGenerado)){
-                System.out.println(numeroGenerado);
-                contadorLinea2++;
-            }
-            else if(carton.linea3.contains(numeroGenerado)){
-                System.out.println(numeroGenerado);
-                contadorLinea3++;
-            }
-            if(contadorLinea==5){
-                linea=true;
-                System.out.println("Han cantado Linea 1: "+carton.linea1.toString());
-                return true;
-            }
-            if(contadorLinea2==5){
-                linea=true;
-                System.out.println("Han cantado la Linea 2 : "+carton.linea2.toString());
-                return true;
-            }
-            if(contadorLinea3==5){
-                linea=true;
-                System.out.println("Han cantado la Linea 3: " +carton.linea2.toString());
-                return true;
-            }
-        }while(!linea);
-        return false;
+    public synchronized void comprobarCarton(Carton carton, Jugador jugador) {
 
+        //Recorre las filas
+        for(int i=0; i<3;i++){
+
+            //Recorre las columnas
+            for(int j=0; j<9; j++){
+
+                //Comprueba si el número coincide
+                if(numeroActual == carton.getCarton()[i][j]){
+                    carton.tacharNumero(i,j);
+                    carton.aumentarContador(i);
+                    System.out.println("Número tachado del cartón " + carton.getId());
+
+                    //Comprueba la línea si aún no se ha cantado
+                    if(!linea && (carton.getContadorLinea1()==5||carton.getContadorLinea2()==5||carton.getContadorLinea3()==5)){
+                        System.out.println("\nEl jugador " + jugador.getIdJugador() + " ha cantado una línea del cartón " + carton.getId() + "\n" + carton);
+                        linea = true;
+                    }
+
+                    //Comprueba si hay bingo
+                    else if (linea && carton.getContadorLinea1()==5 && carton.getContadorLinea2()==5 && carton.getContadorLinea3()==5){
+                        System.out.println("\nEl jugador " + jugador.getIdJugador() + " ha cantado Bingo! " + "\n" + carton);
+                        bingo = true;
+                    }
+                }
+            }
+        }
     }
-    private static int calcularNumeroAleatorio() {
-        int numero = (int) (Math.random()*99 + 1);
-        return numero;
-
+    public void nuevoNumero(){
+        numeroActual = numeros.get(contador);
+        contador++;
     }
 
-    public static void cantarBingo(Carton carton) {
+    public ArrayList<Integer> generarNumeros() {
+        numeros = new ArrayList<>();
+        while (numeros.size()<99) {
+            //Genera un número entre 1 y 99:
+            int numero = (int) (Math.random() * 99 + 1);
+            if (!numeros.contains(numero)) {
+                //Añade el número
+                this.setNumeroActual(numero);
+                numeros.add(numero);
+            }
+        }
+        return numeros;
+    }
 
+    public boolean isLinea() {
+        return linea;
+    }
+
+    public void setLinea(boolean linea) {
+        this.linea = linea;
+    }
+
+    public int getNumeroActual() {
+        return numeroActual;
+    }
+
+    public boolean isBingo() {
+        return bingo;
+    }
+
+    public void setBingo(boolean bingo) {
+        this.bingo = bingo;
+    }
+
+    public void setNumeroActual(int numeroActual) {
+        this.numeroActual = numeroActual;
     }
 }

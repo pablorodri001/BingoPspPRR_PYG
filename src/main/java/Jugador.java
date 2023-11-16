@@ -1,47 +1,34 @@
+import java.util.ArrayList;
+
 public class Jugador implements Runnable {
-    //el jugador contara con un id y un carton para jugar
-
     private int idJugador;
-    private Carton cartonJugador;
     private Casino casinoJuego;
+    private ArrayList<Carton> cartones;
 
 
-
-    public Jugador(int idJugador, Carton cartonJugador,Casino casinoJuego) {
+    public Jugador(int idJugador, Casino casinoJuego, ArrayList<Carton> cartones) {
         this.idJugador = idJugador;
-        this.cartonJugador = cartonJugador;
         this.casinoJuego=casinoJuego;
-    }
-
-    @Override
-    public String toString() {
-        return "Jugador{" +
-                "idJugador=" + idJugador +
-                ", cartonJugador=" + cartonJugador +
-                '}';
-    }
-
-    public int getIdJugador() {
-        return idJugador;
-    }
-
-    public void setIdJugador(int idJugador) {
-        this.idJugador = idJugador;
-    }
-
-    public Carton getCartonJugador() {
-        return cartonJugador;
-    }
-
-    public void setCartonJugador(Carton cartonJugador) {
-        this.cartonJugador = cartonJugador;
+        this.cartones=cartones;
     }
 
     @Override
     public void run() {
-    if(Casino.cantarlinea(cartonJugador )){
-        Casino.cantarBingo(cartonJugador);
-    };
 
+        for (Carton carton : cartones){
+            //Comprobar cada cartón
+            if (!casinoJuego.isBingo()) {
+                casinoJuego.comprobarCarton(carton,this);
+            }
+        }
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int getIdJugador() {
+        return idJugador;
     }
 }
