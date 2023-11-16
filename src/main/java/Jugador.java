@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Jugador implements Runnable {
+    //comentario prueba git
     private int idJugador;
     private Casino casinoJuego;
     private ArrayList<Carton> cartones;
