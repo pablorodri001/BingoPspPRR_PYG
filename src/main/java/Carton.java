@@ -1,21 +1,43 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Carton {
+    private int precio=1;
     private final int id;
     private int [][] carton;
+    private  int [][] cartonOriginal;
     private int contadorLinea1;
+
+
+    public String toString2() {
+        return "Carton{" +
+                "cartonOriginal=" + "\n" + cartonOriginal [0][0] + "," + cartonOriginal [0][1] +","+ cartonOriginal [0][2] +","+
+                cartonOriginal [0][3] +","+ cartonOriginal [0][4] +","+ cartonOriginal [0][5] +","+ cartonOriginal [0][6] +","+ cartonOriginal [0][7] +","+
+                cartonOriginal [0][8] + "\n" + cartonOriginal [1][0] + "," + cartonOriginal [1][1] +","+ cartonOriginal [1][2] +","+ cartonOriginal [1][3] +","+
+                cartonOriginal [1][4] +","+ cartonOriginal [1][5] +","+ cartonOriginal [1][6] +","+ cartonOriginal [1][7] +","+ cartonOriginal [1][8] + "\n" +
+                cartonOriginal [2][0] + "," + cartonOriginal [2][1] +","+ cartonOriginal [2][2] +","+ cartonOriginal [2][3] +","+ cartonOriginal [2][4] +","+
+                cartonOriginal [2][5] +","+ cartonOriginal [2][6] +","+ cartonOriginal [2][7] +","+ cartonOriginal [2][8] + "\n"+"}";
+    }
+
     private int contadorLinea2;
+
+    public int[][] getCartonOriginal() {
+        return cartonOriginal;
+    }
+
     private int contadorLinea3;
 
 
     public Carton(int id) {
         this.id=id;
+
         contadorLinea1=0;
         contadorLinea2=0;
         contadorLinea3=0;
 
         carton = rellenarCarton();
+        cartonOriginal=carton;
     }
 
     private int[][] rellenarCarton() {

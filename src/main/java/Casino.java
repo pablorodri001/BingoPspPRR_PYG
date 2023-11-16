@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Casino {
 
@@ -37,7 +38,7 @@ public class Casino {
 
                     //Comprueba si hay bingo
                     else if (linea && carton.getContadorLinea1()==5 && carton.getContadorLinea2()==5 && carton.getContadorLinea3()==5){
-                        System.out.println("\nEl jugador " + jugador.getIdJugador() + " ha cantado Bingo! " + "\n" + carton);
+                        System.out.println("\nEl jugador " + jugador.getIdJugador() + " ha cantado Bingo! " + "\n" +carton.toString2());
                         bingo = true;
                     }
                 }
