@@ -48,6 +48,7 @@ public class Casino {
     }
 
     public ArrayList<Integer> generarNumeros() {
+        contador = 0;
         numeros = new ArrayList<>();
         while (numeros.size()<99) {
             //Genera un número entre 1 y 99:
@@ -78,6 +79,22 @@ public class Casino {
 
     public void setBingo(boolean bingo) {
         this.bingo = bingo;
+    }
+
+    public int getContador() {
+        return contador;
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+
+    public ArrayList<Integer> getNumeros() {
+        return numeros;
+    }
+
+    public void setNumeros(ArrayList<Integer> numeros) {
+        this.numeros = numeros;
     }
 
     public void setNumeroActual(int numeroActual) {
