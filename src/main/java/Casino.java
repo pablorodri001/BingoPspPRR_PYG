@@ -10,7 +10,9 @@ public class Casino {
     public Casino() {
         linea=false;
         bingo = false;
+        //Devuelve la lista con números del 1 al 99 en orden aleatorio.
         numeros = generarNumeros();
+        //Contador para saber por qué número vamos de la lista.
         contador = 0;
     }
 
@@ -43,6 +45,7 @@ public class Casino {
         }
     }
     public void nuevoNumero(){
+        //Pasa al siguiente número de la lista
         numeroActual = numeros.get(contador);
         contador++;
     }
@@ -54,10 +57,11 @@ public class Casino {
             //Genera un número entre 1 y 99:
             int numero = (int) (Math.random() * 99 + 1);
             if (!numeros.contains(numero)) {
-                //Añade el número
+                //Añade el número a la lista
                 numeros.add(numero);
             }
         }
+        //Devuelve la lista con números del 1 al 99 en orden aleatorio
         return numeros;
     }
 
