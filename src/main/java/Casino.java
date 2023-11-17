@@ -25,7 +25,7 @@ public class Casino {
                 if (numeroActual == carton.getCarton()[i][j]) {
                     carton.tacharNumero(i, j);
                     carton.aumentarContador(i);
-                    System.out.println("Número tachado del cartón " + carton.getId());
+                    System.out.println("El jugador " + jugador.getIdJugador() + " ha tachado el número del cartón " + carton.getId());
 
                     //Comprueba la línea si aún no se ha cantado
                     if (!linea && (carton.getContadorLinea1() == 5 || carton.getContadorLinea2() == 5 || carton.getContadorLinea3() == 5)) {
@@ -35,7 +35,7 @@ public class Casino {
 
                     //Comprueba si hay bingo
                     else if (linea && carton.getContadorLinea1() == 5 && carton.getContadorLinea2() == 5 && carton.getContadorLinea3() == 5) {
-                        System.out.println("\nEl jugador " + jugador.getIdJugador() + " ha cantado Bingo! " + "\n" + carton.toString2());
+                        System.out.println("\nEl jugador " + jugador.getIdJugador() + " ha cantado Bingo! " + "\n" + carton);
                         bingo = true;
                     }
                 }

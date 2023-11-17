@@ -32,13 +32,32 @@ public class Jugador implements Runnable {
             if (!casinoJuego.isBingo()) {
                 casinoJuego.comprobarCarton(carton,this);
             }
-           /* try{
-                Thread.sleep(250);
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }*/
         }
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setIdJugador(int idJugador) {
+        this.idJugador = idJugador;
+    }
+
+    public int getCredito() {
+        return credito;
+    }
+
+    public void setCredito(int credito) {
+        this.credito = credito;
+    }
+
+    public Casino getCasinoJuego() {
+        return casinoJuego;
+    }
+
+    public void setCasinoJuego(Casino casinoJuego) {
+        this.casinoJuego = casinoJuego;
     }
 
     public int getIdJugador() {
