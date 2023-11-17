@@ -1,8 +1,6 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Casino {
-
     private boolean linea;
     private boolean bingo;
     private int numeroActual;
@@ -16,29 +14,28 @@ public class Casino {
         contador = 0;
     }
 
-    public synchronized void comprobarCarton(Carton carton, Jugador jugador) {
-
+    public void comprobarCarton(Carton carton, Jugador jugador) {
         //Recorre las filas
-        for(int i=0; i<3;i++){
+        for (int i = 0; i < 3; i++) {
 
             //Recorre las columnas
-            for(int j=0; j<9; j++){
+            for (int j = 0; j < 9; j++) {
 
                 //Comprueba si el número coincide
-                if(numeroActual == carton.getCarton()[i][j]){
-                    carton.tacharNumero(i,j);
+                if (numeroActual == carton.getCarton()[i][j]) {
+                    carton.tacharNumero(i, j);
                     carton.aumentarContador(i);
                     System.out.println("Número tachado del cartón " + carton.getId());
 
                     //Comprueba la línea si aún no se ha cantado
-                    if(!linea && (carton.getContadorLinea1()==5||carton.getContadorLinea2()==5||carton.getContadorLinea3()==5)){
+                    if (!linea && (carton.getContadorLinea1() == 5 || carton.getContadorLinea2() == 5 || carton.getContadorLinea3() == 5)) {
                         System.out.println("\nEl jugador " + jugador.getIdJugador() + " ha cantado una línea del cartón " + carton.getId() + "\n" + carton);
                         linea = true;
                     }
 
                     //Comprueba si hay bingo
-                    else if (linea && carton.getContadorLinea1()==5 && carton.getContadorLinea2()==5 && carton.getContadorLinea3()==5){
-                        System.out.println("\nEl jugador " + jugador.getIdJugador() + " ha cantado Bingo! " + "\n" +carton.toString2());
+                    else if (linea && carton.getContadorLinea1() == 5 && carton.getContadorLinea2() == 5 && carton.getContadorLinea3() == 5) {
+                        System.out.println("\nEl jugador " + jugador.getIdJugador() + " ha cantado Bingo! " + "\n" + carton.toString2());
                         bingo = true;
                     }
                 }
@@ -57,7 +54,6 @@ public class Casino {
             int numero = (int) (Math.random() * 99 + 1);
             if (!numeros.contains(numero)) {
                 //Añade el número
-                this.setNumeroActual(numero);
                 numeros.add(numero);
             }
         }

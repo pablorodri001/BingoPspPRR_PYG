@@ -33,11 +33,6 @@ public class Jugador implements Runnable {
                 casinoJuego.comprobarCarton(carton,this);
             }
         }
-       /* try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }*/
     }
 
     public int getIdJugador() {
