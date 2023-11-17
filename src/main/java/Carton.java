@@ -6,7 +6,9 @@ public class Carton {
     private int precio=1;
     private final int id;
     private int [][] carton;
-    private  int [][] cartonOriginal;
+    private int [][] cartonOriginal;
+
+
     private int contadorLinea1;
 
 
@@ -37,7 +39,6 @@ public class Carton {
         contadorLinea3=0;
 
         carton = rellenarCarton();
-        cartonOriginal=carton;
     }
 
     private int[][] rellenarCarton() {

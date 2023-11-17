@@ -32,6 +32,12 @@ public class Jugador implements Runnable {
             if (!casinoJuego.isBingo()) {
                 casinoJuego.comprobarCarton(carton,this);
             }
+           /* try{
+                Thread.sleep(250);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }*/
         }
     }
 

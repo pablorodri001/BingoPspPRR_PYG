@@ -8,19 +8,17 @@ public class Principal {
         ArrayList<Carton> cartonJugador3=new ArrayList<>();
         ArrayList<Carton> cartonJugador4=new ArrayList<>();
 
-        for (int i = 0; i < 50; i++) {
-            if (i<12){
-                cartonJugador1.add(new Carton(i+1));
-            }
-            else if (i<25){
-                cartonJugador2.add(new Carton(i+1));
-            }
-            else if (i<37){
-                cartonJugador3.add(new Carton(i+1));
-            }
-            else {
-                cartonJugador4.add(new Carton(i+1));
-            }
+        for(int i =0;i<4;i++){
+        cartonJugador1.add(new Carton(i+1));
+        }
+        for(int i=4;i<6;i++){
+            cartonJugador2.add(new Carton(i+1));
+        }
+        for(int i=6;i<9;i++){
+            cartonJugador3.add(new Carton(i+1));
+        }
+        for(int i=9;i<10;i++){
+            cartonJugador4.add(new Carton(i+1));
         }
 
         Jugador jugador1=new Jugador(1,casino,4,cartonJugador1);
