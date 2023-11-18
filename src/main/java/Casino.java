@@ -65,43 +65,11 @@ public class Casino {
         return numeros;
     }
 
-    public boolean isLinea() {
-        return linea;
-    }
-
-    public void setLinea(boolean linea) {
-        this.linea = linea;
-    }
-
     public int getNumeroActual() {
         return numeroActual;
     }
 
     public boolean isBingo() {
         return bingo;
-    }
-
-    public void setBingo(boolean bingo) {
-        this.bingo = bingo;
-    }
-
-    public int getContador() {
-        return contador;
-    }
-
-    public void setContador(int contador) {
-        this.contador = contador;
-    }
-
-    public ArrayList<Integer> getNumeros() {
-        return numeros;
-    }
-
-    public void setNumeros(ArrayList<Integer> numeros) {
-        this.numeros = numeros;
-    }
-
-    public void setNumeroActual(int numeroActual) {
-        this.numeroActual = numeroActual;
     }
 }

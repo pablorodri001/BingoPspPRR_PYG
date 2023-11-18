@@ -1,43 +1,19 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Carton {
-    private int precio=1;
     private final int id;
-    private int [][] carton;
-    private int [][] cartonOriginal;
-
-
+    private final int [][] carton;
     private int contadorLinea1;
-
-
-    public String toString2() {
-        return "Carton{" +
-                "cartonOriginal=" + "\n" + cartonOriginal [0][0] + "," + cartonOriginal [0][1] +","+ cartonOriginal [0][2] +","+
-                cartonOriginal [0][3] +","+ cartonOriginal [0][4] +","+ cartonOriginal [0][5] +","+ cartonOriginal [0][6] +","+ cartonOriginal [0][7] +","+
-                cartonOriginal [0][8] + "\n" + cartonOriginal [1][0] + "," + cartonOriginal [1][1] +","+ cartonOriginal [1][2] +","+ cartonOriginal [1][3] +","+
-                cartonOriginal [1][4] +","+ cartonOriginal [1][5] +","+ cartonOriginal [1][6] +","+ cartonOriginal [1][7] +","+ cartonOriginal [1][8] + "\n" +
-                cartonOriginal [2][0] + "," + cartonOriginal [2][1] +","+ cartonOriginal [2][2] +","+ cartonOriginal [2][3] +","+ cartonOriginal [2][4] +","+
-                cartonOriginal [2][5] +","+ cartonOriginal [2][6] +","+ cartonOriginal [2][7] +","+ cartonOriginal [2][8] + "\n"+"}";
-    }
-
     private int contadorLinea2;
-
-    public int[][] getCartonOriginal() {
-        return cartonOriginal;
-    }
-
     private int contadorLinea3;
-
+    private int [][] cartonOriginal;
 
     public Carton(int id) {
         this.id=id;
-
-        contadorLinea1=0;
-        contadorLinea2=0;
-        contadorLinea3=0;
-
+        contadorLinea1 = 0;
+        contadorLinea2 = 0;
+        contadorLinea3 = 0;
         carton = rellenarCarton();
     }
 
@@ -86,7 +62,6 @@ public class Carton {
                 }
             }
         }
-
         return carton;
     }
 
@@ -102,6 +77,7 @@ public class Carton {
                 numeros.add(numero);
             }
         }
+        //Ordenar números:
         Collections.sort(numeros);
         return numeros;
     }
@@ -115,6 +91,21 @@ public class Carton {
                 carton [2][0] + "," + carton [2][1] +","+ carton [2][2] +","+ carton [2][3] +","+ carton [2][4] +","+
                 carton [2][5] +","+ carton [2][6] +","+ carton [2][7] +","+ carton [2][8] + "\n";
 
+    }
+    public String toString2() {
+        return "Carton{" +
+                "cartonOriginal=" + "\n" + cartonOriginal [0][0] + "," + cartonOriginal [0][1] +","+ cartonOriginal [0][2] +","+
+                cartonOriginal [0][3] +","+ cartonOriginal [0][4] +","+ cartonOriginal [0][5] +","+ cartonOriginal [0][6] +","+ cartonOriginal [0][7] +","+
+                cartonOriginal [0][8] + "\n" + cartonOriginal [1][0] + "," + cartonOriginal [1][1] +","+ cartonOriginal [1][2] +","+ cartonOriginal [1][3] +","+
+                cartonOriginal [1][4] +","+ cartonOriginal [1][5] +","+ cartonOriginal [1][6] +","+ cartonOriginal [1][7] +","+ cartonOriginal [1][8] + "\n" +
+                cartonOriginal [2][0] + "," + cartonOriginal [2][1] +","+ cartonOriginal [2][2] +","+ cartonOriginal [2][3] +","+ cartonOriginal [2][4] +","+
+                cartonOriginal [2][5] +","+ cartonOriginal [2][6] +","+ cartonOriginal [2][7] +","+ cartonOriginal [2][8] + "\n"+"}";
+    }
+
+    public void aumentarContador(int i) {
+        if (i==0){contadorLinea1++;}
+        else if (i==1){contadorLinea2++;}
+        else {contadorLinea3++;}
     }
 
     public int[][] getCarton() {
@@ -141,15 +132,7 @@ public class Carton {
         return id;
     }
 
-    public void aumentarContador(int i) {
-        if (i==0){
-            contadorLinea1++;
-        }
-        else if (i==1){
-            contadorLinea2++;
-        }
-        else {
-            contadorLinea3++;
-        }
+    public int[][] getCartonOriginal() {
+        return cartonOriginal;
     }
 }

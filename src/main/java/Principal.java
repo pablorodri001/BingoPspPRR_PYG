@@ -19,7 +19,8 @@ public class Principal {
         Jugador jugador4=new Jugador(4,casino,0, cartonJugador4);
 
         //Pedir número de jugadores:
-        System.out.print("Cuantos jugadores? (1-4): ");
+        System.out.println("\n\n******  BINGO  ******");
+        System.out.print("Cuántos jugadores? (1-4): ");
         int nJugadores = solicitarInt();
         int maxCartones = 0;
 
@@ -27,7 +28,7 @@ public class Principal {
         ArrayList<Jugador> jugadores = new ArrayList<>();
         switch(nJugadores){
             case 1:
-                System.out.print("Creditos del jugador: ");
+                System.out.print("Créditos del jugador: ");
                 jugador1.setCredito(solicitarInt());
 
                 jugadores.add(jugador1);
@@ -36,9 +37,9 @@ public class Principal {
                 break;
 
             case 2:
-                System.out.print("Creditos del jugador 1: ");
+                System.out.print("Créditos del jugador 1: ");
                 jugador1.setCredito(solicitarInt());
-                System.out.print("Creditos del jugador 2: ");
+                System.out.print("Créditos del jugador 2: ");
                 jugador2.setCredito(solicitarInt());
 
                 jugadores.add(jugador1);
@@ -48,11 +49,11 @@ public class Principal {
                 break;
 
             case 3:
-                System.out.print("Creditos del jugador 1: ");
+                System.out.print("Créditos del jugador 1: ");
                 jugador1.setCredito(solicitarInt());
-                System.out.print("Creditos del jugador 2: ");
+                System.out.print("Créditos del jugador 2: ");
                 jugador2.setCredito(solicitarInt());
-                System.out.print("Creditos del jugador 3: ");
+                System.out.print("Créditos del jugador 3: ");
                 jugador3.setCredito(solicitarInt());
 
                 jugadores.add(jugador1);
@@ -63,13 +64,13 @@ public class Principal {
                 break;
 
             case 4:
-                System.out.print("Creditos del jugador 1: ");
+                System.out.print("Créditos del jugador 1: ");
                 jugador1.setCredito(solicitarInt());
-                System.out.print("Creditos del jugador 2: ");
+                System.out.print("Créditos del jugador 2: ");
                 jugador2.setCredito(solicitarInt());
-                System.out.print("Creditos del jugador 3: ");
+                System.out.print("Créditos del jugador 3: ");
                 jugador3.setCredito(solicitarInt());
-                System.out.print("Creditos del jugador 4: ");
+                System.out.print("Créditos del jugador 4: ");
                 jugador4.setCredito(solicitarInt());
 
                 jugadores.add(jugador1);
@@ -118,7 +119,7 @@ public class Principal {
         while (!casino.isBingo()) {
             //Sacar nuevo número:
             casino.nuevoNumero();
-            System.out.println("\nRONDA " + ronda + ": " + "El numero tachado es " + casino.getNumeroActual());
+            System.out.println("\nRONDA " + ronda + ": " + "El número tachado es " + casino.getNumeroActual());
 
             //Crear array para meter los hilos
             Thread[] hilos = new Thread[4];

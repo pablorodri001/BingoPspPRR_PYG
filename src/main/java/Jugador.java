@@ -1,27 +1,16 @@
 import java.util.ArrayList;
 
 public class Jugador implements Runnable {
-    //comentario prueba git
-    private int idJugador;
+    private final int idJugador;
     private int credito;
-    private Casino casinoJuego;
-
-    public ArrayList<Carton> getCartones() {
-        return cartones;
-    }
-
-    public void setCartones(ArrayList<Carton> cartones) {
-        this.cartones = cartones;
-    }
-
+    private final Casino casinoJuego;
     private ArrayList<Carton> cartones;
-
 
     public Jugador(int idJugador, Casino casinoJuego,int credito, ArrayList<Carton> cartones) {
         this.idJugador = idJugador;
-        this.casinoJuego=casinoJuego;
-        this.credito=credito;
-        this.cartones=cartones;
+        this.casinoJuego = casinoJuego;
+        this.credito = credito;
+        this.cartones = cartones;
     }
 
     @Override
@@ -34,14 +23,10 @@ public class Jugador implements Runnable {
             }
         }
         try {
-            Thread.sleep(100);
+            Thread.sleep(200);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public void setIdJugador(int idJugador) {
-        this.idJugador = idJugador;
     }
 
     public int getCredito() {
@@ -52,15 +37,11 @@ public class Jugador implements Runnable {
         this.credito = credito;
     }
 
-    public Casino getCasinoJuego() {
-        return casinoJuego;
-    }
-
-    public void setCasinoJuego(Casino casinoJuego) {
-        this.casinoJuego = casinoJuego;
-    }
-
     public int getIdJugador() {
         return idJugador;
+    }
+
+    public void setCartones(ArrayList<Carton> cartones) {
+        this.cartones = cartones;
     }
 }
